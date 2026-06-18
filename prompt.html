@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Utilizado - Laboratorio de Landing Pages</title>
+    <link rel="stylesheet" href="styles/portada-styles.css">
+    <style>
+        /* Estilos específicos para la página del Prompt integrados con el diseño base */
+        .navbar {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            margin: -40px -20px 40px -20px; /* Compensa el padding del body base */
+        }
+
+        .navbar-info h1 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .navbar-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn-back {
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background-color 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-back:hover {
+            background-color: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .prompt-container {
+            background-color: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .prompt-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .prompt-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .prompt-box {
+            background-color: #f1f3f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 4px 4px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #212529;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-info">
+            <h1>Laboratorio de Landing Pages</h1>
+            <p>Tecnicatura en Desarrollo de Software | Proyecto de IA</p>
+        </div>
+        <a href="index.html" class="btn-back">
+            &larr; Volver al Inicio
+        </a>
+    </nav>
+
+    <div class="container">
+        
+        <main class="prompt-container">
+            <div class="prompt-header">
+                <span class="card-tag">Ingeniería de Prompts</span>
+                <h2 class="prompt-title">Requerimiento Técnico Original</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Este es el texto plano e instrucciones exactas compartidas con los agentes Claude y Codex.</p>
+            </div>
+
+            <pre class="prompt-box">ROLE
+You are a senior Full Stack Engineer, Senior UX/UI Designer, and Frontend Architect with extensive experience building high-conversion landing pages for production environments.
+Your task is to autonomously design and implement a complete, modern, responsive Landing Page without requiring further clarification.
+
+OBJECTIVE
+Create a professional landing page for a fictional technology company called "NovaTech Solutions", a company that helps businesses accelerate digital transformation through software development, artificial intelligence, cloud solutions, and process automation.
+The website must be visually attractive, conversion-oriented, mobile-first, accessible, and production-ready.
+
+MANDATORY SECTIONS
+The landing page must contain all of the following sections:
+
+1. Header
+   * Company logo/text
+   * Responsive navigation menu
+   * CTA button
+2. Hero Section
+   * Strong headline
+   * Supporting subtitle
+   * Primary Call-To-Action button
+   * Secondary action button
+3. About Us
+   * Company description
+   * Mission statement
+   * Value proposition
+4. Services Section Include at least 4 services:
+   * Custom Software Development
+   * Artificial Intelligence Solutions
+   * Cloud Infrastructure
+   * Business Process Automation
+5. Features / Benefits Section Present at least 6 key benefits.
+6. Testimonials Section Include at least 3 realistic client testimonials with:
+   * Name
+   * Role
+   * Company
+   * Testimonial text
+7. Contact Section Visual contact form only:
+   * Name
+   * Email
+   * Company
+   * Message No backend implementation required.
+8. Footer
+   * Navigation links
+   * Copyright notice
+   * Social media links:
+      * LinkedIn
+      * X/Twitter
+      * Instagram
+      * GitHub
+
+DESIGN REQUIREMENTS
+* Modern SaaS aesthetic.
+* Professional and trustworthy appearance.
+* Responsive on mobile, tablet, and desktop.
+* Consistent visual hierarchy.
+* Strong typography.
+* Appropriate spacing and alignment.
+* Smooth hover effects and subtle animations.
+* Accessible color contrast.
+* Clean component structure.
+
+TECHNICAL REQUIREMENTS
+* Use modern frontend best practices.
+* Produce clean and maintainable code.
+* Organize components logically.
+* Avoid unnecessary dependencies.
+* Ensure responsive layouts.
+* Follow accessibility best practices (ARIA where appropriate).
+* Optimize for performance.
+
+CONTENT REQUIREMENTS
+* Generate realistic marketing copy.
+* Avoid placeholder text such as "Lorem Ipsum".
+* Write persuasive but professional content.
+* Maintain consistency across all sections.
+
+AUTONOMY RULE
+Do not ask follow-up questions.
+Make reasonable assumptions whenever information is missing and continue implementation autonomously.
+
+QUALITY CHECKLIST
+Before finalizing, verify that:
+* All mandatory sections exist.
+* Navigation links work correctly.
+* Responsive design is implemented.
+* Layout has no visual inconsistencies.
+* CTA buttons are clearly visible.
+* Testimonials appear realistic.
+* Footer contains all required links.
+* The page looks deployment-ready.
+
+OUTPUT
+Deliver the complete implementation ready to run without additional modifications.</pre>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Instituto de Formación Técnica Superior N° 29 | Buenos Aires, Argentina</p>
+        </footer>
+    </div>
+
+</body>
+</html>

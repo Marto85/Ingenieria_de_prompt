@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech Solutions — Engineering Digital Transformation</title>
+    <meta name="description"
+        content="NovaTech Solutions designs and builds the software, AI, and cloud infrastructure that turn ambitious roadmaps into shipped products.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ============================================
+     TOKENS
+  ============================================ */
+        :root {
+            --navy-900: #0E1A2B;
+            --navy-800: #142339;
+            --navy-700: #1B2D4A;
+            --blue-500: #3D8BFF;
+            --blue-600: #2C6FDB;
+            --teal-400: #00D4B0;
+            --slate-500: #5B6B82;
+            --slate-300: #A9B4C4;
+            --slate-200: #E2E6ED;
+            --slate-100: #EEF1F5;
+            --paper: #F7F8FA;
+            --white: #FFFFFF;
+
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --line: rgba(61, 139, 255, 0.18);
+            --line-soft: rgba(61, 139, 255, 0.10);
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --max-w: 1180px;
+
+            --ease: cubic-bezier(.16, .84, .44, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            color: var(--navy-900);
+            background: var(--paper);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            color: var(--navy-900);
+            line-height: 1.15;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue-600);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 1.5px solid var(--blue-500);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .section {
+            padding: 88px 0;
+        }
+
+        .section-head {
+            max-width: 680px;
+            margin-bottom: 48px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+            margin-top: 14px;
+        }
+
+        .section-head p {
+            margin-top: 16px;
+            color: var(--slate-500);
+            font-size: 1.05rem;
+        }
+
+        .section-head.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* skip link */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 0;
+            background: var(--blue-500);
+            color: var(--white);
+            padding: 10px 18px;
+            z-index: 200;
+            border-radius: 0 0 var(--radius-sm) 0;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        :focus-visible {
+            outline: 2.5px solid var(--blue-500);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        /* ============================================
+     BUTTONS
+  ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 13px 26px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--blue-500);
+            color: var(--white);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-600);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -8px rgba(61, 139, 255, 0.55);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy-900);
+            border-color: var(--slate-200);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blue-500);
+            color: var(--blue-600);
+            transform: translateY(-2px);
+        }
+
+        .btn-on-dark {
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-on-dark:hover {
+            border-color: var(--teal-400);
+            color: var(--teal-400);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+     HEADER
+  ============================================ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 248, 250, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--slate-200);
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 74px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--navy-900);
+        }
+
+        .logo-mark {
+            width: 30px;
+            height: 30px;
+            border: 1.5px solid var(--navy-900);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-mark::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            background: var(--blue-500);
+        }
+
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            top: -1.5px;
+            left: -1.5px;
+            width: 6px;
+            height: 6px;
+            border-top: 1.5px solid var(--teal-400);
+            border-left: 1.5px solid var(--teal-400);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .main-nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--slate-500);
+            position: relative;
+            padding: 4px 2px;
+            transition: color 0.2s var(--ease);
+        }
+
+        .main-nav a:hover {
+            color: var(--navy-900);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1.5px;
+            background: var(--blue-500);
+            transition: width 0.25s var(--ease);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .header-actions .btn-primary {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1.5px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 880px) {
+            .main-nav {
+                position: fixed;
+                top: 74px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                border-bottom: 1px solid var(--slate-200);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s var(--ease);
+            }
+
+            .main-nav.is-open {
+                max-height: 420px;
+            }
+
+            .main-nav a {
+                width: 100%;
+                padding: 16px 24px;
+                border-bottom: 1px solid var(--slate-100);
+            }
+
+            .main-nav a::after {
+                display: none;
+            }
+
+            .header-actions .btn-text-label {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 881px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+
+        /* ============================================
+     HERO
+  ============================================ */
+        .hero {
+            position: relative;
+            background: var(--navy-900);
+            overflow: hidden;
+            padding: 80px 0 0;
+        }
+
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line-soft) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 85%);
+            opacity: 0.7;
+        }
+
+        .hero .container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            padding-top: 32px;
+            padding-bottom: 0;
+        }
+
+        .hero-copy {
+            color: var(--white);
+            max-width: 620px;
+        }
+
+        .hero-copy .eyebrow {
+            color: var(--teal-400);
+        }
+
+        .hero-copy .eyebrow::before {
+            border-color: var(--teal-400);
+        }
+
+        .hero-copy h1 {
+            color: var(--white);
+            font-size: clamp(2.1rem, 5.4vw, 3.4rem);
+            margin-top: 18px;
+        }
+
+        .hero-copy .accent {
+            color: var(--blue-500);
+        }
+
+        .hero-copy p.lead {
+            color: var(--slate-300);
+            font-size: 1.1rem;
+            margin-top: 22px;
+            max-width: 540px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            margin-top: 34px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: auto;
+            max-width: 480px;
+        }
+
+        .hero-stats {
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 56px;
+            padding: 28px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .hero-stat .num {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .hero-stat .label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--slate-300);
+            margin-top: 4px;
+        }
+
+        @media (min-width: 760px) {
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 980px) {
+            .hero .container {
+                grid-template-columns: 1.05fr 0.95fr;
+                align-items: center;
+                padding-bottom: 40px;
+            }
+
+            .hero-stats {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* draw-in line animation */
+        .draw-line {
+            stroke-dasharray: 340;
+            stroke-dashoffset: 340;
+            animation: draw 1.6s var(--ease) forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .pulse-node {
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.35;
+            }
+        }
+
+        /* ============================================
+     REVEAL ON SCROLL
+  ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+     ABOUT
+  ============================================ */
+        .about {
+            background: var(--white);
+        }
+
+        .about .container {
+            display: grid;
+            gap: 48px;
+        }
+
+        .about-copy p {
+            color: var(--slate-500);
+            font-size: 1.02rem;
+            margin-top: 16px;
+        }
+
+        .about-copy h2 {
+            font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+            margin-top: 14px;
+        }
+
+        .mission-box {
+            margin-top: 28px;
+            border-left: 2px solid var(--blue-500);
+            padding-left: 20px;
+        }
+
+        .mission-box .label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue-600);
+            font-weight: 500;
+        }
+
+        .mission-box p {
+            margin-top: 8px;
+            color: var(--navy-900);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .value-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 8px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 14px;
+            padding: 18px;
+            background: var(--paper);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+        }
+
+        .value-item .icon {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy-900);
+            border-radius: var(--radius-sm);
+        }
+
+        .value-item .icon svg {
+            width: 16px;
+            height: 16px;
+            color: var(--teal-400);
+            stroke: var(--teal-400);
+        }
+
+        .value-item h4 {
+            font-size: 1rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .value-item p {
+            color: var(--slate-500);
+            font-size: 0.92rem;
+            margin-top: 4px;
+        }
+
+        @media (min-width: 940px) {
+            .about .container {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+        }
+
+        /* ============================================
+     SERVICES
+  ============================================ */
+        .services {
+            background: var(--paper);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width:640px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width:1040px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .service-card {
+            position: relative;
+            background: var(--white);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 30px 24px;
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+        }
+
+        .service-card::before,
+        .service-card::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: var(--blue-500);
+            opacity: 0;
+            transition: opacity 0.25s var(--ease);
+        }
+
+        .service-card::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid;
+            border-left: 2px solid;
+        }
+
+        .service-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid;
+            border-right: 2px solid;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px -16px rgba(14, 26, 43, 0.18);
+            border-color: var(--slate-200);
+        }
+
+        .service-card:hover::before,
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card .index {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--slate-300);
+            font-weight: 500;
+        }
+
+        .service-card .icon {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius-sm);
+            background: var(--navy-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .service-card .icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--blue-500);
+        }
+
+        .service-card h3 {
+            font-size: 1.12rem;
+            margin-top: 18px;
+        }
+
+        .service-card p {
+            color: var(--slate-500);
+            font-size: 0.93rem;
+            margin-top: 10px;
+        }
+
+        /* ============================================
+     FEATURES (dark band)
+  ============================================ */
+        .features {
+            background: var(--navy-900);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+            background-size: 64px 64px;
+            opacity: 0.5;
+        }
+
+        .features .container {
+            position: relative;
+        }
+
+        .features .section-head h2 {
+            color: var(--white);
+        }
+
+        .features .section-head p {
+            color: var(--slate-300);
+        }
+
+        .features .eyebrow {
+            color: var(--teal-400);
+        }
+
+        .features .eyebrow::before {
+            border-color: var(--teal-400);
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width:680px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width:1040px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-item {
+            background: var(--navy-800);
+            padding: 28px 26px;
+            transition: background 0.25s var(--ease);
+        }
+
+        .feature-item:hover {
+            background: var(--navy-700);
+        }
+
+        .feature-item .icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(61, 139, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .feature-item .icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--blue-500);
+        }
+
+        .feature-item h3 {
+            color: var(--white);
+            font-size: 1.02rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: var(--slate-300);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* ============================================
+     TESTIMONIALS
+  ============================================ */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width:760px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background: var(--paper);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .testimonial-card .quote-mark {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            color: var(--blue-500);
+            line-height: 1;
+        }
+
+        .testimonial-card blockquote {
+            margin: 14px 0 0;
+            font-size: 0.98rem;
+            color: var(--navy-900);
+            flex-grow: 1;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--slate-200);
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--navy-900);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-footer .name {
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .testimonial-footer .role {
+            font-size: 0.82rem;
+            color: var(--slate-500);
+            margin-top: 2px;
+        }
+
+        /* ============================================
+     CONTACT
+  ============================================ */
+        .contact {
+            background: var(--paper);
+        }
+
+        .contact .container {
+            display: grid;
+            gap: 40px;
+        }
+
+        .contact-info .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+        }
+
+        .contact-info p.lead {
+            color: var(--slate-500);
+            margin-top: 16px;
+            font-size: 1.02rem;
+            max-width: 440px;
+        }
+
+        .contact-points {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-point {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .contact-point .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            border: 1px solid var(--slate-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-point .icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--blue-600);
+        }
+
+        .contact-point strong {
+            font-size: 0.92rem;
+            display: block;
+        }
+
+        .contact-point span {
+            font-size: 0.88rem;
+            color: var(--slate-500);
+        }
+
+        .contact-form {
+            background: var(--white);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 32px;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .form-row label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 7px;
+            color: var(--navy-900);
+        }
+
+        .form-row .req {
+            color: var(--blue-600);
+        }
+
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            padding: 12px 14px;
+            border: 1.5px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: var(--paper);
+            color: var(--navy-900);
+            transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus {
+            border-color: var(--blue-500);
+            background: var(--white);
+            outline: none;
+        }
+
+        .form-row textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--slate-500);
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        .form-success {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 212, 176, 0.1);
+            border: 1px solid rgba(0, 212, 176, 0.4);
+            color: #067a64;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .form-success.is-shown {
+            display: flex;
+        }
+
+        .form-success svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            stroke: #067a64;
+        }
+
+        @media (min-width:940px) {
+            .contact .container {
+                grid-template-columns: 0.85fr 1.15fr;
+                align-items: start;
+            }
+        }
+
+        /* ============================================
+     FOOTER
+  ============================================ */
+        .site-footer {
+            background: var(--navy-900);
+            color: var(--slate-300);
+            padding: 64px 0 28px;
+        }
+
+        .footer-top {
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+        }
+
+        .footer-brand .logo-mark {
+            border-color: var(--white);
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            max-width: 320px;
+            color: var(--slate-300);
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--slate-300);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--slate-300);
+            margin-bottom: 11px;
+            transition: color 0.2s var(--ease);
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 24px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.84rem;
+            color: var(--slate-300);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+
+        .social-links a svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--white);
+        }
+
+        .social-links a:hover {
+            border-color: var(--blue-500);
+            background: rgba(61, 139, 255, 0.12);
+        }
+
+        @media (min-width:680px) {
+            .footer-top {
+                grid-template-columns: 1.2fr 2fr;
+            }
+        }
+
+        @media (min-width:680px) {
+            .footer-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width:760px) {
+            .footer-bottom {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- ============================================
+     HEADER
+============================================ -->
+    <header class="site-header">
+        <div class="container">
+            <a href="/index.html" class="logo" aria-label="NovaTech Solutions home">
+                <span class="logo-mark" aria-hidden="true"></span>
+                Home
+            </a>
+            <a href="#top" class="logo" aria-label="NovaTech Solutions home">
+                <span class="logo-mark" aria-hidden="true"></span>
+                NovaTech Solutions
+            </a>
+
+            <nav class="main-nav" id="main-nav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#features">Why NovaTech</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-primary">
+                    <span class="btn-text-label">Book a Consultation</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav"
+                    aria-label="Toggle navigation menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ============================================
+       HERO
+  ============================================ -->
+        <section class="hero" id="top" aria-label="Introduction">
+            <div class="hero-grid-bg" aria-hidden="true"></div>
+            <div class="container">
+
+                <div class="hero-copy">
+                    <span class="eyebrow">Digital Transformation Partner</span>
+                    <h1>We engineer the systems behind your next decade of growth</h1>
+                    <p class="lead">NovaTech Solutions designs and builds the software, AI, and cloud infrastructure
+                        that turn ambitious roadmaps into shipped products — without the guesswork, the outsourced
+                        juniors, or the surprise invoices.</p>
+                    <div class="hero-ctas">
+                        <a href="#contact" class="btn btn-primary">
+                            Book a Free Consultation
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                        <a href="#services" class="btn btn-secondary btn-on-dark">Explore Our Services</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-hidden="true">
+                    <svg viewBox="0 0 480 360" fill="none">
+                        <g stroke="#3D8BFF" stroke-width="1.5" opacity="0.9">
+                            <path class="draw-line" d="M60 280 L150 200 L150 120 L260 80" />
+                            <path class="draw-line" d="M260 80 L360 100 L420 60" />
+                            <path class="draw-line" d="M150 200 L260 220 L260 80" />
+                            <path class="draw-line" d="M260 220 L340 260 L420 240" />
+                        </g>
+                        <g fill="#00D4B0">
+                            <circle class="pulse-node" cx="60" cy="280" r="5" />
+                            <circle class="pulse-node" cx="420" cy="60" r="5" style="animation-delay:0.4s" />
+                            <circle class="pulse-node" cx="420" cy="240" r="5" style="animation-delay:0.8s" />
+                        </g>
+                        <g fill="#3D8BFF">
+                            <circle cx="150" cy="200" r="6" />
+                            <circle cx="150" cy="120" r="6" />
+                            <circle cx="260" cy="80" r="7" />
+                            <circle cx="360" cy="100" r="6" />
+                            <circle cx="260" cy="220" r="7" />
+                            <circle cx="340" cy="260" r="6" />
+                        </g>
+                        <g fill="#A9B4C4" font-family="JetBrains Mono" font-size="11">
+                            <text x="68" y="276">api</text>
+                            <text x="270" y="76">core</text>
+                            <text x="270" y="216">cloud</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="num">120+</div>
+                        <div class="label">Products Shipped</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">98%</div>
+                        <div class="label">Client Retention</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">8 yrs</div>
+                        <div class="label">Avg. Engineer Experience</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">12 wks</div>
+                        <div class="label">Median Time to Launch</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================
+       ABOUT
+  ============================================ -->
+        <section class="section about" id="about" aria-label="About NovaTech Solutions">
+            <div class="container">
+
+                <div class="about-copy reveal">
+                    <span class="eyebrow">About Us</span>
+                    <h2>Technology partners who ship, not just advise</h2>
+                    <p>Founded by engineers who got tired of watching good ideas die in slide decks, NovaTech Solutions
+                        partners with growth-stage and enterprise teams to turn digital transformation from a buzzword
+                        into a shipped, measurable outcome. We embed alongside your team — not behind a ticketing queue
+                        — to design, build, and operate the technology your business actually runs on.</p>
+                    <p>Every engagement starts with your business goal, not a tech stack. From there, we scope, build,
+                        and hand off systems your internal team can own and extend long after we're gone.</p>
+
+                    <div class="mission-box">
+                        <div class="label">Our Mission</div>
+                        <p>To make enterprise-grade technology accessible to every business ambitious enough to need it
+                            — delivered with the speed of a startup and the rigor of a systems team.</p>
+                    </div>
+                </div>
+
+                <div class="value-list reveal">
+                    <div class="value-item">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </span>
+                        <div>
+                            <h4>Senior engineers only</h4>
+                            <p>No outsourced juniors learning on your dime — every line is written and reviewed by
+                                senior staff.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </span>
+                        <div>
+                            <h4>Fixed-scope delivery</h4>
+                            <p>Weekly shipped milestones and transparent pricing, agreed before a single line of code is
+                                written.</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </span>
+                        <div>
+                            <h4>Built for handoff</h4>
+                            <p>We design systems for your team to own and extend — documentation included, no vendor
+                                lock-in.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================
+       SERVICES
+  ============================================ -->
+        <section class="section services" id="services" aria-label="Our services">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">What We Do</span>
+                    <h2>Four disciplines, one accountable team</h2>
+                    <p>We don't hand you off between departments. The same team that scopes your project ships it,
+                        supports it, and stands behind it.</p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <span class="index">01 / Build</span>
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </span>
+                        <h3>Custom Software Development</h3>
+                        <p>From internal tools to customer-facing platforms, we design and build software tailored to
+                            how your business actually operates — not the other way around.</p>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <span class="index">02 / Predict</span>
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                            </svg>
+                        </span>
+                        <h3>Artificial Intelligence Solutions</h3>
+                        <p>We build practical AI: forecasting models, intelligent automation, and LLM-powered tools that
+                            solve a specific business problem and prove ROI within a quarter.</p>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <span class="index">03 / Scale</span>
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M17.5 19H6.5a4.5 4.5 0 0 1-1-8.9 5.5 5.5 0 0 1 10.6-2 4.5 4.5 0 0 1 1.4 8.9z" />
+                            </svg>
+                        </span>
+                        <h3>Cloud Infrastructure</h3>
+                        <p>We architect, migrate, and operate cloud environments on AWS, Azure, and GCP that scale with
+                            demand and stay within budget — security and observability built in from day one.</p>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <span class="index">04 / Automate</span>
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7" rx="1" />
+                                <rect x="14" y="3" width="7" height="7" rx="1" />
+                                <rect x="14" y="14" width="7" height="7" rx="1" />
+                                <rect x="3" y="14" width="7" height="7" rx="1" />
+                            </svg>
+                        </span>
+                        <h3>Business Process Automation</h3>
+                        <p>We map your highest-friction workflows and replace manual steps with reliable automation,
+                            freeing your team to focus on work that actually needs a human.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+       FEATURES / BENEFITS
+  ============================================ -->
+        <section class="section features" id="features" aria-label="Why choose NovaTech">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Why NovaTech</span>
+                    <h2>Built to de-risk your next technology bet</h2>
+                    <p>We've structured how we work around the things that actually go wrong on technology projects —
+                        scope creep, talent churn, and systems no one can maintain after launch.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item reveal">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </span>
+                        <h3>Senior engineering talent</h3>
+                        <p>Every project is staffed by senior engineers with an average of 8+ years of experience — no
+                            learning curve on your budget.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </span>
+                        <h3>Fixed timelines, no surprises</h3>
+                        <p>Transparent scoping and milestone-based delivery mean you always know what's shipping and
+                            when.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </span>
+                        <h3>Security-first architecture</h3>
+                        <p>SOC 2-aligned practices and least-privilege access are designed into every build from day
+                            one, not bolted on later.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10" />
+                                <line x1="12" y1="20" x2="12" y2="4" />
+                                <line x1="6" y1="20" x2="6" y2="14" />
+                            </svg>
+                        </span>
+                        <h3>Measurable ROI</h3>
+                        <p>Dashboards track the business metrics that matter to you — revenue, hours saved, error rates
+                            — not just sprint velocity.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 8l4 4-4 4M3 12h18" />
+                            </svg>
+                        </span>
+                        <h3>Seamless team integration</h3>
+                        <p>We work inside your existing tools — Slack, Jira, GitHub — like an internal team, not an
+                            outside vendor.</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <span class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 1 1-3-6.7" />
+                                <polyline points="21 3 21 9 15 9" />
+                            </svg>
+                        </span>
+                        <h3>Long-term support</h3>
+                        <p>Post-launch support plans keep what we build running, monitored, and improving long after the
+                            handoff.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+       TESTIMONIALS
+  ============================================ -->
+        <section class="section testimonials" id="testimonials" aria-label="Client testimonials">
+            <div class="container">
+                <div class="section-head center reveal">
+                    <span class="eyebrow">Client Results</span>
+                    <h2>Trusted by teams who measure outcomes, not output</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <figure class="testimonial-card reveal">
+                        <span class="quote-mark" aria-hidden="true">"</span>
+                        <blockquote>NovaTech rebuilt our dispatch platform in twelve weeks — something our internal
+                            roadmap had budgeted eight months for. The handoff documentation alone saved us months of
+                            onboarding.</blockquote>
+                        <figcaption class="testimonial-footer">
+                            <span class="avatar" aria-hidden="true">SC</span>
+                            <div>
+                                <div class="name">Sarah Chen</div>
+                                <div class="role">VP of Engineering, Brightline Logistics</div>
+                            </div>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="testimonial-card reveal">
+                        <span class="quote-mark" aria-hidden="true">"</span>
+                        <blockquote>We came to NovaTech with a vague idea about "using AI" and left with a forecasting
+                            model that's now part of how we make investment decisions. They translated ambiguity into
+                            something usable.</blockquote>
+                        <figcaption class="testimonial-footer">
+                            <span class="avatar" aria-hidden="true">MW</span>
+                            <div>
+                                <div class="name">Marcus Webb</div>
+                                <div class="role">COO, Fenwick &amp; Holt Capital</div>
+                            </div>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="testimonial-card reveal">
+                        <span class="quote-mark" aria-hidden="true">"</span>
+                        <blockquote>Our checkout automation cut manual order processing by 70%. NovaTech's team
+                            understood our warehouse operations better than some of our own longtime vendors did.
+                        </blockquote>
+                        <figcaption class="testimonial-footer">
+                            <span class="avatar" aria-hidden="true">PA</span>
+                            <div>
+                                <div class="name">Priya Anand</div>
+                                <div class="role">Founder, Greenline Retail Group</div>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+       CONTACT
+  ============================================ -->
+        <section class="section contact" id="contact" aria-label="Contact us">
+            <div class="container">
+
+                <div class="contact-info reveal">
+                    <span class="eyebrow">Get In Touch</span>
+                    <h2>Tell us where you're headed</h2>
+                    <p class="lead">Share a few details about your project and a NovaTech solutions architect will
+                        follow up within one business day — no automated sales sequence, just a real conversation.</p>
+
+                    <div class="contact-points">
+                        <div class="contact-point">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Call us</strong>
+                                <span>+1 (415) 555-0198</span>
+                            </div>
+                        </div>
+                        <div class="contact-point">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 4h16v16H4z" opacity="0" />
+                                    <path d="M22 6 12 13 2 6" />
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Email us</strong>
+                                <span>hello@novatechsolutions.io</span>
+                            </div>
+                        </div>
+                        <div class="contact-point">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Visit us</strong>
+                                <span>480 Market Street, San Francisco, CA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm" aria-label="Project inquiry form">
+                    <div class="form-success" id="formSuccess" role="status">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        Thanks — your message has been received. We'll be in touch within one business day.
+                    </div>
+
+                    <div class="form-row">
+                        <label for="name">Full name <span class="req">*</span></label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Work email <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" autocomplete="organization">
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Tell us about your project <span class="req">*</span></label>
+                        <textarea id="message" name="message" required
+                            placeholder="What are you trying to build or solve?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Send Message
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                    </button>
+                    <p class="form-note">This is a demo form — no data is transmitted or stored.</p>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+     FOOTER
+============================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#top" class="logo" aria-label="NovaTech Solutions home">
+                        <span class="logo-mark" aria-hidden="true"></span>
+                        NovaTech Solutions
+                    </a>
+                    <p>We design and build the software, AI, and cloud infrastructure behind ambitious digital
+                        transformations.</p>
+                </div>
+
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#features">Why NovaTech</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <a href="#testimonials">Case Studies</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#top">Careers</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#top">Privacy Policy</a>
+                        <a href="#top">Terms of Service</a>
+                        <a href="#top">Security</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 NovaTech Solutions. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="NovaTech Solutions on LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="NovaTech Solutions on X (Twitter)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M4 4l16 16M20 4 4 20" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="NovaTech Solutions on Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="NovaTech Solutions on GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('main-nav');
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            revealEls.forEach(el => observer.observe(el));
+        } else {
+            revealEls.forEach(el => el.classList.add('is-visible'));
+        }
+
+        // Contact form (visual only — no backend)
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('formSuccess');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            success.classList.add('is-shown');
+            form.querySelectorAll('input, textarea').forEach(field => field.value = '');
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+
+</body>
+
+</html>
