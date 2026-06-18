@@ -11,7 +11,7 @@ Este repositorio contiene la entrega del proyecto de desarrollo y despliegue com
 ## 🚀 Despliegue Unificado
 El proyecto se encuentra totalmente unificado y deployado en un único enlace a través de **Vercel**, el cual dirige a la raíz (`index.html`) sirviendo de portada dinámica hacia las diferentes resoluciones:
 
-👉 **[Link al Deploy Unificado en Vercel](https://tu-proyecto-landing-pages.vercel.app)** *(Nota: Reemplazar por tu URL real de Vercel)*
+👉 **[Link al Deploy Unificado en Vercel](https://ingenieria-de-prompt.vercel.app)
 
 ---
 
