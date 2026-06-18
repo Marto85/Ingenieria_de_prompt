@@ -133,8 +133,7 @@ Para que el deploy unificado funcione correctamente manteniendo las rutas relati
 
 ## 📸 Capturas de Pantalla de los Sitios Web
 
-## 1. Landing Page - Primer Agente (Codex)
-## 📸 Capturas de Pantalla de la Interfaz
+## Landing Page - Primer Agente (Codex)
 
 A continuación se detallan de forma secuencial los componentes visuales clave desarrollados para las landing pages, divididos por secciones según su arquitectura de diseño:
 
@@ -167,9 +166,7 @@ A continuación se detallan de forma secuencial los componentes visuales clave d
 *Cierre de la página con derechos de autor, enlaces secundarios de navegación, políticas legales y accesos a redes sociales.*
 
 
-### 2. Landing Page - Segundo Agente (Claude)
-![Captura Codex](/claude_project/)
-* Modularización limpia, componentes reactivos aislados en CSS y JS.*
+### Landing Page - Segundo Agente (Claude)
 
 A continuación se detallan de forma secuencial los componentes visuales clave desarrollados para las landing pages, divididos por secciones según su arquitectura de diseño:
 
