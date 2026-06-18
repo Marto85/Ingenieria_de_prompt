@@ -112,8 +112,10 @@ Deliver the complete implementation ready to run without additional modification
 ---
 
 ## 🛠️ Estructura del Repositorio
+
 Para que el deploy unificado funcione correctamente manteniendo las rutas relativas de la portada, la estructura interna del repositorio está organizada de la siguiente manera:
 
+```text
 ├── index.html               # Archivo de Portada Principal (Página raíz solicitada)
 ├── prompt.txt               # Archivo de texto plano con el prompt exacto
 ├── styles/                  # Carpeta de estilos globales de la portada
@@ -126,8 +128,8 @@ Para que el deploy unificado funcione correctamente manteniendo las rutas relati
     ├── script.js            # Archivo de interacciones JavaScript
     └── assets/              # Carpeta de recursos multimedia
         └── imagen.png       # Imagen utilizada en el proyecto
+```
 
----
 
 ## 📸 Capturas de Pantalla de los Sitios Web
 
